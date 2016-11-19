@@ -1,2 +1,2 @@
 # Twitter
-Variation of basic Twitter Analyitcs
+Variation of basic Twitter analytics
