@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Twittertoy by nicl7004</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Twittertoy</h1>
+        <p>Variation of basic Twitter Analyitcs</p>
+        <p class="view"><a href="https://github.com/nicl7004/twitterToy">View the Project on GitHub <small>nicl7004/twitterToy</small></a></p>
+        <ul>
+          <li><a href="https://github.com/nicl7004/twitterToy/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/nicl7004/twitterToy/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/nicl7004/twitterToy">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="twittertoy" class="anchor" href="#twittertoy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>twitterToy</h1>
+
+<p>Variations of basic Twitter analytics</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation:</h2>
+
+<ol>
+<li><p>Go to <a href="https://dev.twitter.com/">https://dev.twitter.com/</a> and set up a developer account, you are going to need an Application Name, a Consumer Key, a Consumer Secret, an Access Token, and an Access Secret.  Next input all of this information into /modules/config.py for later use.</p></li>
+<li><p>Run database/create_db.py, this will create a sqlite3 database to write users into temporarily for later analysis.  This database is intended to serve as a cache, and allow us fewer API calls for better results.</p></li>
+<li><p>Install twitter library using <code>sudo pip3 install twitter</code>.</p></li>
+<li><p>You're good to go! That should be everything necessary to run the current modules.</p></li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage:</h2>
+
+<h3>
+<a id="database" class="anchor" href="#database" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>/database:</h3>
+
+<p>This is where the database (graph.db) and all database helper scripts live.  The database is sqlite3, and is intended to save API calls and increase the accuracy of metrics by providing more data.</p>
+
+<h3>
+<a id="modules" class="anchor" href="#modules" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>/modules</h3>
+
+<p>These are the different metrics currently available with twitterToy. So far there is:</p>
+
+<p><code>config.py</code> - Contains all necessary tokens and secrets gathered from <a href="https://dev.twitter.com/">https://dev.twitter.com/</a>.</p>
+
+<p><code>findFriends.py</code> - Returns a list of the users friends, can search based on username, full-name, or description (otherwise known as biography).  The username, full-name, or description currently have to be an exact match for this program be successful.</p>
+
+<p><code>followers-tweets-scatter.py</code> - Prints a scatter plot of Followers vs Tweets with data from the database.  This is helpful in identifying a correlation between how often an account tweets and the number of accounts following that account.
+Here is a basic example with upper-bounds of 50,000 for number of tweets and number of followers.
+<img src="http://i.imgur.com/UHfsPpu.png" alt="alt text"></p>
+
+<p><code>gather_data.py</code> - Currently writes to data table in graph.db.  Uses the api call to write unique data for each user. Updates following fields: screen_name text, full_name text, description text, account_created text, number_favorites int, number_followers int, number_following int, id int, profile_image text, number_tweets int, protected int, location text,lang text, time_zone text, withheld_in_countries text.  withheld_in_countries is filled in with a temporary value currently as many users do not have this element attached to their username. Here is an example of gather_data running in the terminal: <img src="http://i.imgur.com/dxCyjhC.png" alt="alt text"></p>
+
+<p><code>GUI.py</code> - Work in progress, in the future hoping to create a GUI for users to search their personal friends and view their personal analytics.</p>
+
+<p><code>network.py</code> - Work in progress, want to create a networkx graph showing connections between users, test theory of 6 degrees of separation.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/nicl7004">nicl7004</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
