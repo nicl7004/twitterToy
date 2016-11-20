@@ -43,5 +43,5 @@ if __name__ == "__main__":
         print("*******************************\n\n")
 
         for i in range(x, 0, -1):
-            print(i, end='\r')
+            print(i, end='   \r')
             time.sleep(1)
