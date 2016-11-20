@@ -33,11 +33,10 @@ def existsNode(username):
     else:
         return False
 # Check if the specified edge is in the 'graph' table in graph.db
-def existsEdge(userone, usertwo):
-    query = userone+"," + usertwo
+def existsEdge(userone):
     conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
-    c.execute("SELECT * FROM graph WHERE edges =?", (query,))
+    c.execute("SELECT * FROM graph WHERE nodes =?", (userone,))
     y = c.fetchall()
     c.close()
     if y:
