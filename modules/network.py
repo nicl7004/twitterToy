@@ -1,5 +1,9 @@
+import os
+import sys
+sys.path.append('../..') #set path to recognize new twitterToy package
 
 from urllib.request import Request, urlopen, URLError
+
 import twitter
 import networkx as nx
 import time
