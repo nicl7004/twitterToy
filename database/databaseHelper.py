@@ -1,7 +1,6 @@
 #Nicholas Clement
 #DB helper scrpit
 
-
 import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
