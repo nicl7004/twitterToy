@@ -46,12 +46,17 @@ def existsEdge(userone):
 # Adds edges to our graph
 def addEdgeNode(userone, usertwo):
     conn = sqlite3.connect('../database/graph.db')
-
     c = conn.cursor()
-
     params = (userone, usertwo)
     c.execute("INSERT INTO graph VALUES(?,?)", params)
     conn.commit()
+    conn.close()
+# Gather all edges from the graph table for creation of networkx graph
+def getEdge():
+    conn = sqlite3.connect('../database/graph.db')
+    c = conn.cursor()
+    y = c.execute("SELECT * FROM graph")
+    return(y)
     conn.close()
 
 
@@ -87,7 +92,6 @@ def gatherUsersFriendsData(username):
     print("*****Wrote", len(myFriends),"users into database.*****")
     conn.commit()
     conn.close()
-
 #return a random username from the database
 def randomUser():
     conn = sqlite3.connect('../database/graph.db')

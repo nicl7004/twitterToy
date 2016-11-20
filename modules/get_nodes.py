@@ -1,15 +1,9 @@
-from urllib.request import Request, urlopen, URLError
 import twitter
-import time
-import config
-import oauth2
-import sqlite3
 
 import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
 import twitterToy.database.databaseHelper
-
 
 
 def userFriends(username):
