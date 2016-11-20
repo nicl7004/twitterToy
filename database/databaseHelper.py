@@ -7,13 +7,13 @@ import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
 
 import sqlite3
-import twitterToy.modules
+import twitterToy.modules.config
 import twitter
 import time
 import oauth2
 # Check if the specified user is in the 'data' table in graph.db
 def existsData(username):
-    conn = sqlite3.connect('graph.db')
+    conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
     c.execute("SELECT * FROM data WHERE screen_name =?", (username,))
     y = c.fetchall()
@@ -24,7 +24,7 @@ def existsData(username):
         return False
 # Check if the specified user is in the 'graph' table in graph.db
 def existsNode(username):
-    conn = sqlite3.connect('graph.db')
+    conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
     c.execute("SELECT * FROM graph WHERE nodes =?", (username,))
     y = c.fetchall()
@@ -36,7 +36,7 @@ def existsNode(username):
 # Check if the specified edge is in the 'graph' table in graph.db
 def existsEdge(userone, usertwo):
     query = userone+" " + usertwo
-    conn = sqlite3.connect('graph.db')
+    conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
     c.execute("SELECT * FROM graph WHERE edges =?", (query,))
     y = c.fetchall()
@@ -56,7 +56,7 @@ def gatherUsersFriendsData(username):
                       )
 
     myFriends = api.GetFriends(screen_name = username)
-    conn = sqlite3.connect('graph.db')
+    conn = sqlite3.connect('../database/graph.db')
 
     print("API Success\n")
 
@@ -80,7 +80,7 @@ def gatherUsersFriendsData(username):
 
 #return a random username from the database
 def randomUser():
-    conn = sqlite3.connect('graph.db')
+    conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
     c.execute("SELECT screen_name, protected FROM data WHERE protected = 0 ORDER BY RANDOM() limit 1")
     for each in c: return (each[0], each[1])
