@@ -2,7 +2,7 @@
 #DB helper scrpit
 
 import sqlite3
-import analyzeTwit
+from twitterToy.analytics import *
 import twitter
 import time
 import config
