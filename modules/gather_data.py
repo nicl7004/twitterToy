@@ -18,10 +18,6 @@ import twitterToy.database.databaseHelper
 if __name__ == "__main__":
 
 
-
-
-
-
     while True:
         protected = 0
         x = random.randint(60,65)

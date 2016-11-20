@@ -34,7 +34,7 @@ def existsNode(username):
         return False
 # Check if the specified edge is in the 'graph' table in graph.db
 def existsEdge(userone, usertwo):
-    query = userone+" " + usertwo
+    query = userone+"," + usertwo
     conn = sqlite3.connect('../database/graph.db')
     c = conn.cursor()
     c.execute("SELECT * FROM graph WHERE edges =?", (query,))
@@ -44,6 +44,18 @@ def existsEdge(userone, usertwo):
         return True
     else:
         return False
+# Adds edges to our graph
+def addEdgeNode(userone, usertwo):
+    conn = sqlite3.connect('../database/graph.db')
+
+    c = conn.cursor()
+
+    params = (userone, usertwo)
+    c.execute("INSERT INTO graph VALUES(?,?)", params)
+    conn.commit()
+    conn.close()
+
+
 # Given a username gather information on all the users friends and write to our data table
 def gatherUsersFriendsData(username):
 
@@ -93,7 +105,7 @@ def main():
     print(existsNode('test node'))
     print(existsEdge('test','edge'))
     print(randomUser())
-
+    addEdgeNode("userone", "usertwo")
 
 
 

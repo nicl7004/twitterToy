@@ -1,6 +1,7 @@
 import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
+import twitterToy.database.databaseHelper
 
 from urllib.request import Request, urlopen, URLError
 
@@ -17,16 +18,18 @@ api = twitter.Api(consumer_key=config.consumerKey,
                   access_token_secret=config.accessSecret)
 
 
-def userFriends():
-
+def userFriends(username):
     return api.GetFriends()
 
 
 if __name__ == '__main__':
-    y = nx.Graph()
+
+    # y = nx.Graph()
 
     for each in userFriends():
-        y.add_edge("nickc873", each.screen_name)
+        # y.add_edge("nickc873", each.screen_name)
+        twitterToy.database.databaseHelper.addEdgeNode("nickc873", each.screen_name)
+
     for each in y.nodes():
         x = api.GetFriends(screen_name =each)
 
