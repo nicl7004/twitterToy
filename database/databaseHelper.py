@@ -82,7 +82,7 @@ def gatherUsersFriendsData(username):
 def randomUser():
     conn = sqlite3.connect('graph.db')
     c = conn.cursor()
-    c.execute("SELECT screen_name, protected FROM data ORDER BY RANDOM() limit 1")
+    c.execute("SELECT screen_name, protected FROM data WHERE protected = 0 ORDER BY RANDOM() limit 1")
     for each in c: return (each[0], each[1])
 
 
@@ -93,13 +93,7 @@ def main():
     print(existsData('nickc873'))
     print(existsNode('test node'))
     print(existsEdge('test','edge'))
-    while y == 0:
-        x = randomUser()
-        if x[1] == 0:
-            y +=1
-            print(x)
-        else:
-            continue
+    print(randomUser())
 
 
 
