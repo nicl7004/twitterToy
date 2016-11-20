@@ -1,11 +1,15 @@
 #Nicholas Clement
 #DB helper scrpit
 
+
+import os
+import sys
+sys.path.append('../..') #set path to recognize new twitterToy package
+
 import sqlite3
-from twitterToy.analytics import *
+import twitterToy.modules
 import twitter
 import time
-import config
 import oauth2
 # Check if the specified user is in the 'data' table in graph.db
 def existsData(username):
@@ -44,10 +48,10 @@ def existsEdge(userone, usertwo):
 # Given a username gather information on all the users friends and write to our data table
 def gatherUsersFriendsData(username):
 
-    api = twitter.Api(consumer_key=config.consumerKey,
-                      consumer_secret=config.consumerSecret,
-                      access_token_key=config.accessToken,
-                      access_token_secret=config.accessSecret,
+    api = twitter.Api(consumer_key=twitterToy.modules.config.consumerKey,
+                      consumer_secret=twitterToy.modules.config.consumerSecret,
+                      access_token_key=twitterToy.modules.config.accessToken,
+                      access_token_secret=twitterToy.modules.config.accessSecret,
                       sleep_on_rate_limit=True
                       )
 
