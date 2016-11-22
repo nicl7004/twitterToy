@@ -37,3 +37,4 @@ Here is a basic example with upper-bounds of 50,000 for number of tweets and num
 `GUI.py` - Work in progress, in the future hoping to create a GUI for users to search their personal friends and view their personal analytics.
 
 `network.py` - Work in progress, want to create a networkx graph showing connections between users, test theory of 6 degrees of separation.
+Here is example visualization created with networkx and matplotlib: ![alt text](http://i.imgur.com/4v8M9B7.png)

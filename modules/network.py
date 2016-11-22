@@ -15,5 +15,5 @@ if __name__ == '__main__':
     print(network.nodes())
     print(network.edges())
 
-    nx.draw_networkx(network, pos=None, arrows=True, with_labels=True, font_size=8)
+    nx.draw_networkx(network, pos=None, arrows=True, with_labels=True, font_size=8, width=0.05)
     plt.show()
