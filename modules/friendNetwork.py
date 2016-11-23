@@ -9,7 +9,8 @@ import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
 import twitterToy.database.databaseHelper
 import twitterToy.modules.get_nodes
-
+import random
+import time
 import twitter
 
 #start by getting each line of file in this function
@@ -30,3 +31,5 @@ if __name__ == '__main__':
         print (each)
         twitterToy.modules.get_nodes.userFriends(each)
         f.write("\n")
+        rand = random.randint(2,5)
+        time.sleep(rand) #sleep for between 2-5 seconds
