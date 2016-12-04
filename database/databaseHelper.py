@@ -98,6 +98,27 @@ def randomUser():
     c = conn.cursor()
     c.execute("SELECT screen_name, protected FROM data WHERE protected = 0 ORDER BY RANDOM() limit 1")
     for each in c: return (each[0], each[1])
+#given a username gather the friend network of the user
+def gatherUsersNetwork(username):
+    listUsers = []
+    if twitterToy.database.databaseHelper.existsEdge(username):
+        print("User network already exists in database\n")
+        return(-1)
+
+    else:
+        api = twitter.Api(consumer_key=twitterToy.modules.config.consumerKey,
+                          consumer_secret=twitterToy.modules.config.consumerSecret,
+                          access_token_key=twitterToy.modules.config.accessToken,
+                          access_token_secret=twitterToy.modules.config.accessSecret,
+                          sleep_on_rate_limit=True)
+        friends = api.GetFriends(username)
+        print("API was called")
+
+        for each in friends:
+            print(each)
+            twitterToy.database.databaseHelper.addEdgeNode(username, each.screen_name)
+            listUsers.append(each.screen_name)
+        return listUsers
 
 
 

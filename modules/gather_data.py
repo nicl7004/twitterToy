@@ -27,9 +27,11 @@ if __name__ == "__main__":
             #check to see if we can access users friends depending on privacy settings
             if z[1] == 0:
                 try:
-                    print("Calling API on user:", z[0],"with privacy ==", z[1])
+                    print("Calling API on user:", z[0],"with privacy ==", z[1],"\n")
                     twitterToy.database.databaseHelper.gatherUsersFriendsData(z[0])
+                    twitterToy.database.databaseHelper.gatherUsersNetwork(z[0])
                     protected +=1
+                    print("Sucess\n")
 
                 except twitter.error.TwitterError:
                     print("Error occured")
