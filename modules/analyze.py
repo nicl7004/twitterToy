@@ -37,7 +37,9 @@ class user(object):
     def searchScreenName(self,username):
 
         try:
-            [print(each.screen_name) for each in self.api.GetFriends(screen_name=username)]
+            for each in self.api.GetFriends(screen_name=username):
+                twitterToy.database.databaseHelper.addEdgeNode(username, each.screen_name)
+                print(each.screen_name)
 
         except twitter.error:
             print("Rate limit exceeded")
@@ -45,21 +47,26 @@ class user(object):
 
     def searchFullname(self,fullname):
         try:
-            [print(each.screen_name) for each in self.api.GetFriends(name=fullname)]
+            for each in self.api.GetFriends(name=fullname):
+                twitterToy.database.databaseHelper.addEdgeNode(username, each.screen_name)
+                print(each.screen_name)
+
         except twitter.error:
             print("Rate limit exceeded")
 
 
     def searchBio(self,bio):
         try:
-            [print(each.screen_name) for each in self.api.GetFriends(description=description)]
+            for each in self.api.GetFriends(description=description):
+                twitterToy.database.databaseHelper.addEdgeNode(username, each.screen_name)
+                print(each.screen_name)
+
         except twitter.error:
             print("Rate limit exceeded")
 
 
 
 if __name__ == '__main__':
-
 
     y = user()
     y.searchScreenName("nickc873")
