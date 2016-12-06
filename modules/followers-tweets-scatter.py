@@ -3,8 +3,7 @@
 import sqlite3
 import matplotlib.pyplot as plt
 
-
-if __name__ == '__main__':
+def main():
     x = y = []
 
     conn = sqlite3.connect('../database/graph.db')
@@ -17,3 +16,6 @@ if __name__ == '__main__':
     plt.plot(*zip(*x), marker='o', color='r', ls='')
     plt.axis([0,50000,0,50000])
     plt.show()
+
+if __name__ == '__main__':
+    main()

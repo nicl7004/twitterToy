@@ -5,9 +5,7 @@ sys.path.append('../..') #set path to recognize new twitterToy package
 
 import sqlite3
 
-
-if __name__ == "__main__":
-
+def main():
     conn = sqlite3.connect('../graph.db')
 
     c = conn.cursor()
@@ -22,3 +20,6 @@ if __name__ == "__main__":
 
     conn.commit()
     conn.close()
+
+if __name__ == "__main__":
+    main()
