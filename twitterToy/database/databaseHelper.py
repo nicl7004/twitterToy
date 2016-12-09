@@ -14,7 +14,7 @@ import oauth2
 # Check if the specified user is in the 'data' table in graph.db
 def existsData(username):
 
-    conn = sqlite3.connect(str(os.path.dirname(os.path.abspath())+"/graph.db"))
+    conn = sqlite3.connect("../database/graph.db")
     c = conn.cursor()
     c.execute("SELECT * FROM data WHERE screen_name =?", (username,))
     y = c.fetchall()
@@ -53,7 +53,11 @@ def existsEdge(userone):
 # Adds edges to our graph
 def addEdgeNode(userone, usertwo):
 
-    conn = sqlite3.connect(str(os.path.dirname(os.path.abspath("graph.db"))))
+
+    dbname = str(os.getcwd())
+
+    dbname.replace("tests", "twitterToy/database/graph.db")
+    conn = sqlite3.connect(dbname.replace("tests", "twitterToy/database/graph.db"))
     c = conn.cursor()
     params = (userone, usertwo)
     c.execute("INSERT INTO graph VALUES(?,?)", params)
