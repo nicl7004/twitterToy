@@ -9,7 +9,7 @@ import sqlite3
 import twitterToy.modules.config as config
 import twitter
 import time
-import oauth2
+
 
 # Check if the specified user is in the 'data' table in graph.db
 def existsData(username):
