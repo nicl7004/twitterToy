@@ -56,8 +56,8 @@ def addEdgeNode(userone, usertwo):
 
     dbname = str(os.getcwd())
 
-    dbname.replace("tests", "twitterToy/database/graph.db")
-    conn = sqlite3.connect(dbname.replace("tests", "twitterToy/database/graph.db"))
+    # dbname.replace("tests", "twitterToy/database/graph.db")
+    conn = sqlite3.connect(dbname.replace("twitter", "twitter/twitterToy/database/graph.db"))
     c = conn.cursor()
     params = (userone, usertwo)
     c.execute("INSERT INTO graph VALUES(?,?)", params)
