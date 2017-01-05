@@ -6,5 +6,5 @@ setup(name='twitterToy',
       author='Nicholas Clement',
       author_email='nicholas.clement@colorado.edu',
       url='N.A.',
-      packages=['twitterToy.modules', 'twitterToy.database'],
+      packages=['modules', 'database'],
      )
