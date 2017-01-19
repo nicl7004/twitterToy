@@ -6,7 +6,7 @@ import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
 
 import sqlite3
-import twitterToy.modules.config as config
+import modules.config as config
 import twitter
 import time
 
@@ -54,11 +54,7 @@ def existsEdge(userone):
 def addEdgeNode(userone, usertwo):
 
     dbname = str(os.getcwd())
-    print("\n\ndb location is")
-    print(dbname)
-
-    # dbname.replace("tests", "twitterToy/database/graph.db")
-    conn = sqlite3.connect(dbname.replace("twitter", "twitter/twitterToy/database/graph.db"))
+    conn = sqlite3.connect(dbname+"/database/graph.db")
     c = conn.cursor()
     params = (userone, usertwo)
     c.execute("INSERT INTO graph VALUES(?,?)", params)

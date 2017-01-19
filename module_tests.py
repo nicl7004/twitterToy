@@ -1,10 +1,7 @@
-
-
-import modules
-# import modules.user as user
+from modules import user
 
 def main():
-    y = modules.user.user()
+    y = user.user()
     y.searchScreenName("nickc873")
 
 
