@@ -1,6 +1,8 @@
 # twitterToy
 Variations of basic Twitter analytics.
 
+[![Build Status](https://travis-ci.org/nicl7004/twitterToy.svg?branch=master)](https://travis-ci.org/nicl7004/twitterToy)
+
 Website: http://nicl7004.github.io/twitterToy/
 
 ## Installation:
