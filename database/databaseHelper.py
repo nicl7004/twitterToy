@@ -59,6 +59,7 @@ def addEdgeNode(userone, usertwo):
         print(dbname+"/database/graph.db\n\n")
         conn = sqlite3.connect(dbname + "/database/graph.db")
     else:
+        dbname = str(os.getcwd())
         conn = sqlite3.connect(dbname+"/database/graph.db")
 
     c = conn.cursor()
