@@ -53,8 +53,14 @@ def existsEdge(userone):
 # Adds edges to our graph
 def addEdgeNode(userone, usertwo):
 
-    dbname = str(os.getcwd())
-    conn = sqlite3.connect(dbname+"/database/graph.db")
+    if "tests" in os.getcwd():
+        dbname = str(os.getcwd()).replace("tests", "")
+        print("Database location is:")
+        print(dbname+"/database/graph.db\n\n")
+        conn = sqlite3.connect(dbname + "/database/graph.db")
+    else:
+        conn = sqlite3.connect(dbname+"/database/graph.db")
+
     c = conn.cursor()
     params = (userone, usertwo)
     c.execute("INSERT INTO graph VALUES(?,?)", params)
