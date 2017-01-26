@@ -127,21 +127,21 @@ def randomUser():
 def gatherUsersNetwork(username):
 
     listUsers = []
-    if twitterToy.database.databaseHelper.existsEdge(username):
+    if existsEdge(username):
         print("User network already exists in database\n")
         return(-1)
 
-    api = twitter.Api(consumer_key=twitterToy.modules.config.consumerKey,
-                      consumer_secret=twitterToy.modules.config.consumerSecret,
-                      access_token_key=twitterToy.modules.config.accessToken,
-                      access_token_secret=twitterToy.modules.config.accessSecret,
+    api = twitter.Api(consumer_key=config.consumerKey,
+                      consumer_secret=config.consumerSecret,
+                      access_token_key=config.accessToken,
+                      access_token_secret=config.accessSecret,
                       sleep_on_rate_limit=True)
     friends = api.GetFriends(username)
     print("API was called")
 
     for each in friends:
         print(each)
-        twitterToy.database.databaseHelper.addEdgeNode(username, each.screen_name)
+        addEdgeNode(username, each.screen_name)
         listUsers.append(each.screen_name)
     return listUsers
 

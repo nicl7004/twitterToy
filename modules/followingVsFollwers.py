@@ -1,4 +1,5 @@
 #Checks the specified users followers vs who they are following, tell them who is not following back
+# Malfunctions on users with large amounts of followers
 
 import os
 import sys
@@ -14,7 +15,6 @@ else:                       #for python 3 and up
 
 
 class followingVsFollwers(object):
-
 
     def __init__(self):
 
@@ -36,7 +36,9 @@ class followingVsFollwers(object):
     def followers(self, userName):
         x = []
         try:
-            [(x.append(each.screen_name)) for each in self.api.GetFollowers(screen_name=userName)]
+            # for each in self.api.GetFollowers(screen_name=userName):
+            #     print(each)
+            [(x.append(each.screen_name)) for each in self.api.GetFollowers(screen_name=userName, total_count=1000)]
         except twitter.error.TwitterError:
             print("Error occured.", twitter.error.TwitterError)
 
