@@ -5,7 +5,6 @@ import sys
 import twitter
 if sys.version_info[0] < 3: #for python 2.7 and under
     (sys.path.append(str(os.path.abspath('..')) + "/twitterToy/"))
-    print(sys.path)
     from database import databaseHelper as db_helper
     from modules import config as config
 
@@ -16,7 +15,6 @@ else:                       #for python 3 and up
     import twitterToy.modules.config as config
 
 
-''' Maybe want to move these classes into separate modules. Usually only want a single class per module '''
 class user(object):
 
     def __init__(self):

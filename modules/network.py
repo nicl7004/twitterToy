@@ -17,12 +17,13 @@ class network(object):
         plt.show()
 
     def networkSize(self): #show size of network
-        return self.graph.size
+        return self.graph.size()
 
 def main():
     x = network() #instance of network class
+    print(x.networkSize())
     x.draw()
-    x.networkSize
+
 
 if __name__ == '__main__':
     main()

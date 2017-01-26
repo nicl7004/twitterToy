@@ -1,6 +1,8 @@
 #Nicholas Clement
 #DB helper scrpit
 
+##/Users/nicholas/Desktop/pers-proj/twitterToy -> where test originates from
+    ##/ Users / nicholas / Desktop / pers - proj / twitterToy /modules-> where functionality originates from
 import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
@@ -8,7 +10,6 @@ sys.path.insert(0, os.path.abspath('..'))
 import sqlite3
 import twitterToy.modules.config as config
 import twitter
-import time
 
 
 # Check if the specified user is in the 'data' table in graph.db
@@ -53,17 +54,9 @@ def existsEdge(userone):
 # Adds edges to our graph
 def addEdgeNode(userone, usertwo):
 
-    ##/Users/nicholas/Desktop/pers-proj/twitterToy -> where test originates from
-
-    ##/ Users / nicholas / Desktop / pers - proj / twitterToy /modules-> where functionality originates from
-
-    print(sys.path)
-    print("\n\n\n", os.getcwd(), "\n\n\n")
-
     if "modules" not in os.getcwd(): ##for the case of running from the test directory
         dbname = str(os.getcwd())
         dbname += "/database/graph.db"
-
         conn = sqlite3.connect(dbname)
 
     else:
@@ -78,7 +71,13 @@ def addEdgeNode(userone, usertwo):
 # Gather all edges from the graph table for creation of networkx graph
 def getEdge():
 
-    conn = sqlite3.connect('../database/graph.db')
+    if "modules" not in os.getcwd(): ##for the case of running from the test directory
+        dbname = str(os.getcwd())
+        dbname += "/database/graph.db"
+        conn = sqlite3.connect(dbname)
+
+    else:
+        conn = sqlite3.connect('../database/graph.db') ##for the case of running from the modules directory
     c = conn.cursor()
     y = c.execute("SELECT * FROM graph")
     return(y)
