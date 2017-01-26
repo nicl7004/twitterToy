@@ -4,9 +4,9 @@
 import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
-
+sys.path.insert(0, os.path.abspath('..'))
 import sqlite3
-import modules.config as config
+import twitterToy.modules.config as config
 import twitter
 import time
 
@@ -53,14 +53,21 @@ def existsEdge(userone):
 # Adds edges to our graph
 def addEdgeNode(userone, usertwo):
 
-    if "tests" in os.getcwd():
-        dbname = str(os.getcwd()).replace("tests", "")
-        print("Database location is:")
-        print(dbname+"/database/graph.db\n\n")
-        conn = sqlite3.connect(dbname + "/database/graph.db")
-    else:
+    ##/Users/nicholas/Desktop/pers-proj/twitterToy -> where test originates from
+
+    ##/ Users / nicholas / Desktop / pers - proj / twitterToy /modules-> where functionality originates from
+
+    print(sys.path)
+    print("\n\n\n", os.getcwd(), "\n\n\n")
+
+    if "modules" not in os.getcwd(): ##for the case of running from the test directory
         dbname = str(os.getcwd())
-        conn = sqlite3.connect(dbname+"/database/graph.db")
+        dbname += "/database/graph.db"
+
+        conn = sqlite3.connect(dbname)
+
+    else:
+        conn = sqlite3.connect('../database/graph.db') ##for the case of running from the modules directory
 
     c = conn.cursor()
     params = (userone, usertwo)

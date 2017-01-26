@@ -3,7 +3,6 @@ import sys
 import matplotlib.pyplot as plt
 sys.path.append('../..') #set path to recognize new twitterToy package
 import twitterToy.database.databaseHelper as db_helper
-
 '''class for creating network from database
 includes some visualizations'''
 

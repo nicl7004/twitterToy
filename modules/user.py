@@ -4,8 +4,8 @@ import os
 import sys
 sys.path.append('../..') #set path to recognize new twitterToy package
 import twitter
-import database.databaseHelper as db_helper
-import modules.config as config
+import twitterToy.database.databaseHelper as db_helper
+import twitterToy.modules.config as config
 
 
 ''' Maybe want to move these classes into separate modules. Usually only want a single class per module '''
