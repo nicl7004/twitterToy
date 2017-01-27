@@ -1,5 +1,5 @@
 #Checks the specified users followers vs who they are following, tell them who is not following back
-# Malfunctions on users with large amounts of followers
+# Upper limit is currently 3000 followers
 
 import os
 import sys
@@ -27,7 +27,7 @@ class followingVsFollwers(object):
     def following(self, userName):
         x = []
         try:
-            [(x.append(each.screen_name))for each in self.api.GetFriends(screen_name=userName)]
+            [(x.append(each.screen_name))for each in self.api.GetFriends(screen_name=userName, total_count=3000)]
         except twitter.error.TwitterError:
             print("Error occured.", twitter.error.TwitterError)
 
@@ -38,7 +38,7 @@ class followingVsFollwers(object):
         try:
             # for each in self.api.GetFollowers(screen_name=userName):
             #     print(each)
-            [(x.append(each.screen_name)) for each in self.api.GetFollowers(screen_name=userName, total_count=1000)]
+            [(x.append(each.screen_name)) for each in self.api.GetFollowers(screen_name=userName, total_count=3000)]
         except twitter.error.TwitterError:
             print("Error occured.", twitter.error.TwitterError)
 

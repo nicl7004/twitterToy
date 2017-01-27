@@ -145,13 +145,29 @@ def gatherUsersNetwork(username):
         listUsers.append(each.screen_name)
     return listUsers
 
+def getEmailList():
+    x = []
+    try:
+        conn = sqlite3.connect("../database/graph.db")
+    except sqlite3.OperationalError:
+        dbname = str(os.getcwd())
+        dbname += "/database/graph.db"
+        conn = sqlite3.connect(dbname)
+
+    c = conn.cursor()
+    c.execute("select * from emailList")
+    [(x.append(each)) for each in c]
+    conn.commit()
+    conn.close()
+    return x
+
 def main():
     y =0
     print(existsData('nickc873'))
     print(existsNode('test node'))
-    print(existsEdge('test','edge'))
+    print(existsEdge('test'))
     print(randomUser())
-    addEdgeNode("userone", "usertwo")
+    print(getEmailList())
 
 if __name__ == '__main__':
     main()

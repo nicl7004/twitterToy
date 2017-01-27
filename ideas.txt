@@ -1,0 +1,6 @@
+create a database of memes and tweet a meme every hour
+search hashtags with poor grammar and correct people who use that grammar
+create an email update with todays top global trends on twitter, then a secondary update with the local trends for that user
+creat an application that measures all the "basic" follower metrics, like followers not following back, etc
+
+
