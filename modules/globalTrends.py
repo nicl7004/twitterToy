@@ -51,10 +51,10 @@ class trends(object):
 
     def sendEmail(self, recip, subject, message):
 
-        messageA = "From: nicholasclement21@gmail.com"
+        messageA = "From: twittertoyoffical@gmail.com"
         messageB = "To: " + recip
         messageC = "Subject: " + subject
-        sender = 'nicholasclement21@gmail.com'
+        sender = 'twittertoyoffical@gmail.com'
         i = 0
         totalMessage = messageA + "\n" + messageB + "\n" + messageC + "\n\n" + message
 
@@ -63,7 +63,7 @@ class trends(object):
             session.ehlo()
             session.starttls()
             session.ehlo()
-            session.login(sender, '!1Laurel12')
+            session.login(sender, 'abcdefg123456')
             session.sendmail(sender, recip, totalMessage)
             session.quit()
 
