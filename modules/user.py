@@ -3,12 +3,13 @@
 import os
 import sys
 import twitter
-if sys.version_info[0] < 3: #for python 2.7 and under
+
+try: #for python 2.7 and under
     (sys.path.append(str(os.path.abspath('..')) + "/twitterToy/"))
     from database import databaseHelper as db_helper
     from modules import config as config
 
-else:                       #for python 3 and up
+except ImportError:                       #for python 3 and up
     sys.path.insert(0, os.path.abspath('..'))
     sys.path.append('../..') #set path to recognize new twitterToy package
     import twitterToy.database.databaseHelper as db_helper

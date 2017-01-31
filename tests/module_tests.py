@@ -4,13 +4,13 @@ import sys
 import os
 import unittest
 
-
-if sys.version_info[0] < 3: #for python 2.7 and under
+# if sys.version_info[0] < 3: #for python 2.7 and under
+try:
     (sys.path.append(str(os.path.abspath('..')) + "/twitterToy/"))
     from modules import user, followingVsFollwers, followers_tweets_scatter, globalTrends
     from database import databaseHelper
 
-else:                       #for python 3 and up
+except ImportError:                       #for python 3 and up
     sys.path.insert(0, os.path.abspath('..'))
     sys.path.append('../..')
     from twitterToy.modules import user, followingVsFollwers, followers_tweets_scatter, globalTrends
@@ -57,5 +57,3 @@ class SimplisticTest(unittest.TestCase):
 if __name__ == '__main__':
     unittest.main()
     x = 0
-
-
