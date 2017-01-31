@@ -37,15 +37,25 @@ class trends(object):
 
         x = ''
         y = ''
-        for each in gTrends:
-            for letter in each:
-                if ord(letter) < 128:
-                    x += letter
-                else:
-                    continue
 
-            y += x
-        return y
+        # print(gTrends)
+        washed = ''
+        for each in gTrends:
+            # for letter in each:
+            #     if ord(letter) < 128:
+            #         x += letter
+            #     else:
+            #         continue
+
+            try:
+                each.encode("ascii")
+                washed += ' '
+                washed += each
+            except UnicodeEncodeError:
+                continue
+
+        print(washed)
+        return washed
 
 
 
@@ -78,7 +88,7 @@ def main():
     x = trends()
     unwashed = x.getGlobalTrends()
     washed = x.washTrend(unwashed)
-    print(washed)
+    # print(washed)
     x.sendEmail("nicholas.clement@colorado.edu", "Twitter Trending Update", washed)
 
 if __name__ == '__main__':
