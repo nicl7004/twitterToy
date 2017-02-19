@@ -90,6 +90,14 @@ def main():
     washed = x.washTrend(unwashed)
     # print(washed)
     x.sendEmail("nicholas.clement@colorado.edu", "Twitter Trending Update", washed)
+    # x.sendEmail("brennon.lee@colorado.edu", "Twitter Trending Update", washed)
+    # x.sendEmail("christopher.struckman@colorado.edu", "Twitter Trending Update", washed)
+    # x.sendEmail("Gavin.Spray@colorado.edu", "Twitter Trending Update", washed)
+    # x.sendEmail("Michael.Vienneau@Colorado.EDU", "Twitter Trending Update", washed)
+    # x.sendEmail("Michael.Jameson@Colorado.EDU", "Twitter Trending Update", washed)
+    # x.sendEmail("tysc7237@colorado.edu", "Twitter Trending Update", washed)
+
+
 
 if __name__ == '__main__':
     main()

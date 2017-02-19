@@ -37,7 +37,7 @@ Patient: "What do you mean, 10? 10 what? Months? Weeks?!" Doctor: "Nine."''', ''
 'I want to die peacefully in my sleep, like my grandfather.. Not screaming and yelling like the passengers in his car.', 'When wearing a bikini, women reveal 90 % of their body... men are so polite they only look at the covered parts.','Im great at multitasking. I can waste time, be unproductive, and procrastinate all at once.',
 'Politicians and diapers have one thing in common. They should both be changed regularly, and for the same reason.', 'When my boss asked me who is the stupid one, me or him? I told him everyone knows he doesnt hire stupid people.', 'People used to laugh at me when I would say "I want to be a comedian", well nobodys laughing now.',
 'Alcohol is a perfect solvent: It dissolves marriages, families and careers.', 'Apparently I snore so loudly that it scares everyone in the car Im driving.']
-    for each in range(1,100,1):
+    for each in range(1,300,1):
         x = random.randint(0, len(message)-1)
         print(message[x])
         try:
@@ -46,7 +46,10 @@ Patient: "What do you mean, 10? 10 what? Months? Weeks?!" Doctor: "Nine."''', ''
 
             continue
         subject = 'Good morning fam, joke number ' + str(x)
-        spammer.sendEmail('nicholas.clement@colorado.edu', subject, message[x])
+        print("encoded")
+        spammer.sendEmail('Nicholas.Clement@colorado.edu', subject, message[x])
+        # spammer.sendEmail('daha9768@colorado.edu', subject, message[x])
+        # spammer.sendEmail('michael.vienneau@colorado.edu', subject, message[x])
         # spammer.sendEmail('brennon.lee@colorado.edu', 'suh du', 'Good morning fam')
         print('Email number:', each, "Subject:", subject)
 # michael.vienneau@colorado.edu
