@@ -40,3 +40,15 @@ Here is a basic example with upper-bounds of 50,000 for number of tweets and num
 
 `network.py` - Work in progress, want to create a networkx graph showing connections between users, test theory of 6 degrees of separation.
 Here is example visualization created with networkx and matplotlib: ![alt text](http://i.imgur.com/4v8M9B7.png)
+
+### /todo:
+
+1. Complete database migration from sqlite3 to postgre and use sqlalchemy
+2. Transfer current modules to new views in flask
+3. Fix current user single auth, make sure user input is salted
+4. Move unit tests to flask app
+5. Set up baby regression testing - travis-ci
+6. Integrate two factor authorization with Twilio
+7. Host on Heroku or AWS
+7. Get HTTPS cert from Let's Encrypt
+8. Create basic "Predictive Analytics" - Feature
