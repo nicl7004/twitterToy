@@ -52,3 +52,5 @@ Here is example visualization created with networkx and matplotlib: ![alt text](
 7. Host on Heroku or AWS
 7. Get HTTPS cert from Let's Encrypt
 8. Create basic "Predictive Analytics" - Feature
+9. Integrate shopify API for commerce handling
+10. Get a sick job @ twitter lol
