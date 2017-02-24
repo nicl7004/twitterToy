@@ -1,6 +1,9 @@
 # JetBrains IDE
 .idea
 
+# Configuration
+config.cfg
+
 .DS_Store
 
 # Byte-compiled / optimized / DLL files
