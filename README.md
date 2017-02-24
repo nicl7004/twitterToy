@@ -1,5 +1,5 @@
-# twitterToy
-Variations of basic Twitter analytics.
+# Savant
+Variations of Twitter analytics.
 
 [![Build Status](https://travis-ci.org/nicl7004/twitterToy.svg?branch=master)](https://travis-ci.org/nicl7004/twitterToy)
 
