@@ -8,3 +8,7 @@ install: "pip install -r requirements.txt"
 # command to run tests
 script:
   - python tests/module_tests.py
+notifications:
+  slack:
+    rooms:
+      - savant-app:JxBtWoquLzQ6bkbQxoqzxFjt#development

@@ -1,5 +1,6 @@
 # Savant
-Variations of Twitter analytics.
+
+### Savant is an encompassing social presence designer, built to promote online growth through predictive analytics and media consolidation.
 
 [![Build Status](https://travis-ci.org/nicl7004/twitterToy.svg?branch=master)](https://travis-ci.org/nicl7004/twitterToy)
 
