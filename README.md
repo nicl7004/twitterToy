@@ -1,6 +1,6 @@
-# Savant
+# twitterToy
 
-### Savant is an encompassing social presence designer, built to promote online growth through predictive analytics and media consolidation.
+### twitterToy is a social media analyzer intended to analyze social networks starting with a single user.
 
 [![Build Status](https://travis-ci.org/nicl7004/twitterToy.svg?branch=master)](https://travis-ci.org/nicl7004/twitterToy)
 
